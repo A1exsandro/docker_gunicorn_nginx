@@ -6,4 +6,12 @@ services:
             context: app
         ports:
             - "5000:5000"
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./nginx.conf:/etc/nginx.conf:ro
+        depends_on:
+            - app
+        ports:
+            - "80:80"
             
